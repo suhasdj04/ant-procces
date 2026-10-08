@@ -1,0 +1,23 @@
+# Byte-compiled / caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Runtime artifacts
+apc_settings.ini
+logs/*.log
+
+# Generated reports / PDFs
+reports/daily_reports/*
+reports/weekly_reports/*
+!reports/daily_reports/.gitkeep
+!reports/weekly_reports/.gitkeep
+
+# Local database
+apc_data.db
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

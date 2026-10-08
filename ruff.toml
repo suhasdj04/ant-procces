@@ -1,0 +1,31 @@
+# Ruff configuration for Anti-Procrastination Coach
+line-length = 120
+target-version = "py311"
+exclude = ["__pycache__", "reports", "resources"]
+
+[lint]
+select = [
+    "E4",    # pycodestyle errors (incl. E401/E402 import placement)
+    "E7",
+    "E9",
+    "E501",  # line length (limit above)
+    "W",     # pycodestyle warnings
+    "F",     # pyflakes (unused imports/variables)
+    "I",     # import sorting
+    "B",     # flake8-bugbear (real bug patterns)
+    "C4",    # comprehension simplifications
+    "RUF",   # ruff-specific correctness rules
+]
+ignore = [
+    # The UI intentionally uses typographic en-dashes and emoji in
+    # labels/log messages; these rules would only add churn.
+    "RUF001",
+    "RUF002",
+    "RUF003",
+]
+# Deliberately NOT selected:
+#   BLE001 – broad `except Exception` blocks are intentional: optional
+#            subsystems (camera, TTS, trackers) degrade gracefully.
+#   DTZ*   – SQLite columns store naive local timestamps; timezone-aware
+#            datetimes would break the strptime round-trips in session_model.
+#   S*     – bandit: desktop app with no network/exec surface.
